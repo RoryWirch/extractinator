@@ -39,19 +39,6 @@ func main() {
 	
 	descSource = reflSource
 	
-	svcs, err := grpcurl.ListServices(descSource)
-	if err != nil {
-		log.Fatalf("could not ListServices: %v", err)
-	}
-	if len(svcs) == 0 {
-		log.Printf("(no services)")
-	} else {
-		log.Printf("Services found:")
-		for _, svc := range svcs {
-			log.Printf("%s\n", svc)
-		}
-	}
-
 	// Set up for using InvokeRPC()
 	verbosityLevel := 0
 	symbol := "api.Registry/ListBundles"
